@@ -44,7 +44,7 @@ def sort_files(folder_path):
 
                 if file_extension[1:].upper() in extensions["archives"]:
                     archive_path = os.path.join(root, file)
-                    extract_path = os.path.join(target_folder_path,os.path.splitext(file)[0])
+                    extract_path = os.path.join(target_folder_path,normalized_name)
                     if file_extension == ".zip":
                         with zipfile.ZipFile(archive_path, 'r') as zip_ref:
                             zip_ref.extractall(extract_path)
@@ -66,5 +66,5 @@ def sort_files(folder_path):
 
 
 
-sort_files(r"C:\Users\noldy\PycharmProjects\test\Temp")
+sort_files(sys.argv[1])
 
